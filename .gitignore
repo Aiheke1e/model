@@ -1,0 +1,29 @@
+# maven
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# logs
+*.log
+logs/
+
+# local overrides (keep committed application-dev.yml as dev template)
+application-local.yml
+application-local.properties
+.env
+.env.local
+
+# misc
+*.swp
+*~

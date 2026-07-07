@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gemify.mapper.VerificationCodeMapper">
+
+    <select id="selectLatestValid" resultType="com.gemify.entity.VerificationCode">
+        SELECT *
+        FROM verification_codes
+        WHERE identity_type = #{identityType}
+          AND identifier = #{identifier}
+          AND purpose = #{purpose}
+          AND used_at IS NULL
+          AND expires_at > NOW()
+        ORDER BY id DESC
+        LIMIT 1
+    </select>
+
+</mapper>

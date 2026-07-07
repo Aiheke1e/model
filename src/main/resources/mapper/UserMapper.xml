@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gemify.mapper.UserMapper">
+
+    <select id="selectByPhone" resultType="com.gemify.entity.User">
+        SELECT *
+        FROM users
+        WHERE phone = #{phone}
+        LIMIT 1
+    </select>
+
+    <select id="selectByEmail" resultType="com.gemify.entity.User">
+        SELECT *
+        FROM users
+        WHERE email = #{email}
+        LIMIT 1
+    </select>
+
+</mapper>

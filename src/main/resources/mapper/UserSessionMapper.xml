@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gemify.mapper.UserSessionMapper">
+
+    <select id="selectByRefreshTokenHash" resultType="com.gemify.entity.UserSession">
+        SELECT *
+        FROM user_sessions
+        WHERE refresh_token_hash = #{refreshTokenHash}
+        LIMIT 1
+    </select>
+
+    <delete id="deleteByUserId">
+        DELETE FROM user_sessions
+        WHERE user_id = #{userId}
+    </delete>
+
+</mapper>

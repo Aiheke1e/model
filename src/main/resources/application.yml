@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: gemify
+  profiles:
+    active: dev
+
+server:
+  port: 8089
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath:mapper/**/*.xml
+
+gemify:
+  jwt:
+    secret: gemify-jwt-secret-change-me-in-production-32chars-min
+    access-token-expire-minutes: 15
+    refresh-token-expire-days: 7
+  verification:
+    code-length: 6
+    expire-minutes: 5
+    max-attempts: 5
+    send-cooldown-seconds: 60
+    daily-send-limit: 10
+  mock:
+    fixed-code: "123456"
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
